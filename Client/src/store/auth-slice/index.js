@@ -6,7 +6,8 @@ const initialState = {
     isLoading: true,
     user: null,
 };
-const BASE_URL=import.meta.env.BASE_URL
+const BASE_URL=import.meta.env.VITE_BASE_URL
+console.log("BASEURL",BASE_URL)
 
 
 export const registerUser = createAsyncThunk(
