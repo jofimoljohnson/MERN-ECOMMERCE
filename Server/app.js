@@ -16,7 +16,7 @@ const app=express()
 
 const PORT=process.env.PORT || 5000
 app.use(cors({
-    origin:'https://mern-ecommerce-uth7.vercel.app/',
+    origin:'https://mern-ecommerce-uth7.vercel.app',
     methods:['GET','POST','PUT','DELETE'],
     allowedHeaders:[
         'Content-Type',
