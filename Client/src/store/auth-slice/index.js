@@ -6,6 +6,8 @@ const initialState = {
     isLoading: true,
     user: null,
 };
+const BASE_URL=import.meta.env.BASE_URL
+
 
 export const registerUser = createAsyncThunk(
     "/auth/register",
@@ -13,7 +15,7 @@ export const registerUser = createAsyncThunk(
     async (formData) => {
       // console.log("authslice",formData)
         const response = await 
-        axios.post("http://localhost:5000/api/auth/register", {
+        axios.post(`${BASE_URL}/api/auth/register`, {
             userName:formData.userName,
             email:formData.email,
             password:formData.password
@@ -31,7 +33,7 @@ export const loginUser = createAsyncThunk(
     async (formData) => {
       // console.log("authslice",formData)
         const response = await 
-        axios.post("http://localhost:5000/api/auth/login", {
+        axios.post(`${BASE_URL}/api/auth/login`, {
             email:formData.email,
             password:formData.password
         }, {
@@ -47,7 +49,7 @@ export const logoutUser=createAsyncThunk(
     "/auth/logout",
     async()=>{
         const response = await 
-        axios.post("http://localhost:5000/api/auth/logout", {},
+        axios.post(`${BASE_URL}/api/auth/logout`, {},
             {
             withCredentials: true,
         });
@@ -68,7 +70,7 @@ export const checkAuth = createAsyncThunk(
 
     async () => {
         const response = await 
-        axios.get("http://localhost:5000/api/auth/check-auth", {
+        axios.get(`${BASE_URL}/api/auth/check-auth`, {
             withCredentials:true,
             headers:{
                 "Cache-control" :'no-store,no-cache,must-revalidate,proxy-revalidate',
