@@ -16,7 +16,8 @@ const app=express()
 
 const PORT=process.env.PORT || 5000
 app.use(cors({
-    origin:'https://mern-ecommerce-chi-rose.vercel.app',
+    origin:['https://mern-ecommerce-chi-rose.vercel.app',
+        "http://localhost:5173"],
     methods:['GET','POST','PUT','DELETE'],
     allowedHeaders:[
         'Content-Type',
@@ -29,6 +30,7 @@ app.use(cors({
 }))
 app.use(cookieParser())
 app.use(express.json())
+app.use("/",(req,res)=>res.send("Jofi"))
 
 app.use("/api/auth",authRouter)
 app.use('/api/admin/products',adminProductsRouter)
